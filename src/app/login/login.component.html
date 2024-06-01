@@ -1,0 +1,30 @@
+<!-- src/app/login/login.component.html -->
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div *ngIf="showUserLogin">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="user.username" name="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+      <br>
+      <button (click)="login('user')" routerLink="home">Login</button>
+      <span class="toggle-type" (click)="toggleUserType()">Switch to Admin</span>
+      <br>
+      <span class="toggle-type" (click)="showSignup = true" routerLink="signup">Sign Up</span>
+    </div>
+
+    <div *ngIf="showAdminLogin">
+      <label for="adminUsername">Username:</label>
+      <input type="text" id="adminUsername" [(ngModel)]="admin.username" name="adminUsername" required>
+      <br>
+      <label for="adminPassword">Password:</label>
+      <input type="password" id="adminPassword" [(ngModel)]="admin.password" name="adminPassword" required>
+      <br>
+      <button (click)="login('admin')">Login</button>
+      <span class="toggle-type" (click)="toggleUserType()">Switch to User</span>
+    </div>
+</div>
+
+</body>

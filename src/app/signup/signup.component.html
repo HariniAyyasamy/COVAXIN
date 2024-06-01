@@ -1,0 +1,29 @@
+<!-- src/app/signup/signup.component.html -->
+<body>
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form (ngSubmit)="signupUser()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="signup.email" name="email" required>
+    <br>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="signup.username" name="username" required>
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="signup.password" name="password" required>
+    <br>
+
+    <label for="retypePassword">Retype Password:</label>
+    <input type="password" id="retypePassword" [(ngModel)]="retypePassword" name="retypePassword" required>
+    <br>
+
+    <div *ngIf="passwordMatchError" class="error-message">
+      Passwords do not match.
+    </div>
+
+    <button type="submit" [disabled]="passwordMatchError">Sign Up</button>
+  </form>
+</div>
+</body>

@@ -1,0 +1,61 @@
+<!-- home.component.html -->
+<div class="mt4">
+<nav class="top-nav">
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+  </div>
+  <div class="but">
+    <a routerLink="/aboutus" ><b>About Us</b></a>
+  </div>
+  <div class="buto">
+    <a routerLink="/">Log Out</a>
+  </div>
+
+</nav>
+
+<div class="container">
+  <h2>Welcome to Vaccination Appointment</h2>
+  <p>Explore vaccination centers and book your appointment.</p>
+</div>
+</div>
+
+
+
+<!-- home-page.component.html -->
+
+<div *ngFor="let center of centers" class="center-container">
+  <div class="left-section">
+    <!-- Display ID on the left -->
+    <p>ID: {{ center.id }}</p>
+  </div>
+
+  <div class="center-section">
+    <!-- Display Name in the center -->
+    <h3> {{ center.name }}</h3>
+  </div>
+  <div class="address">
+    <h3> {{center.address}}</h3>
+  </div>
+  <div class="Incharge">
+    <p> Incharge: {{center.drname}}</p>
+    <p>Contact Info: {{center.contact}}</p>
+  </div>
+
+  <div class="right-section">
+    <p>Opening Timings: {{ center.openingTimings }}</p>
+    <button (click)="showPopup()">Book Now</button>
+
+  </div>
+</div>
+<app-popup
+  *ngIf="showPopupFlag"
+  [title]="popupTitle"
+  [message]="popupMessage"
+  [appointmentDate]="selectedDate"
+  [appointmentTime]="selectedTime"
+  (close)="closePopup()"
+></app-popup>
+
+
+
+

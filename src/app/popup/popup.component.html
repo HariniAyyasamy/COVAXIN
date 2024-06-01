@@ -1,0 +1,26 @@
+<!-- popup.component.html -->
+
+<div class="modal-overlay" (click)="closePopup()">
+  <div class="modal-content" (click)="stopPropagation($event)">
+
+    <div class="popup-header">
+      <h2>{{ title }}</h2>
+      <button class="close-button" (click)="closePopup()">Close</button>
+    </div>
+
+    <div class="popup-body">
+
+      <div class="scheduling-form">
+        <label for="appointmentDate">Appointment Date:</label>
+        <input type="date" id="appointmentDate" [(ngModel)]="appointmentDate" required>
+
+        <label for="appointmentTime">Appointment Time:</label>
+        <input type="time" id="appointmentTime" [(ngModel)]="appointmentTime" required>
+
+        <button class="schedule-button" (click)="scheduleAppointment()">Schedule Appointment</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
